@@ -33,6 +33,9 @@ public class ArticleDAO implements IArticleDAO {
 		Article artcl = getArticleById(article.getArticleId());
 		artcl.setTitle(article.getTitle());
 		artcl.setCategory(article.getCategory());
+		artcl.setEmail(article.getEmail());
+		artcl.setName(article.getName());
+	//	artcl.setDate(article.getDate());
 		entityManager.flush();
 	}
 	@Override

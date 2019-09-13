@@ -1,6 +1,7 @@
 package com.concretepage.service;
 
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +28,14 @@ public class ArticleService implements IArticleService {
 	}
 	@Override
 	public synchronized boolean createArticle(Article article){
+		 
+		SimpleDateFormat formatter =new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		Date date=new Date();
+		article.setDate(date);
 		
+		articleRepository.save(article);
 
-		if((articleRepository.ExsisistedArticles(article.getTitle(), article.getCategory())).size()>0)
+		/*if((articleRepository.ExsisistedArticles(article.getTitle(), article.getCategory())).size()>0)
 		{
 			return false;
 		}
@@ -39,7 +45,8 @@ public class ArticleService implements IArticleService {
 		{
 			 articleRepository.save(article);
 			 return true;
-		}
+		}*/
+		 return true;
 		
 	}
 	@Override
